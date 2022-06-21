@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block title %}Página de Login{% endblock %}
+
+{% block content %}
+
+    <form action="" method="post">
+        {% csrf_token %}
+        Nome de usuário
+        <input type="text" name="username" class="form-control">
+        Senha
+        <input type="password" name="password" class="form-control">
+        <button type="submit" id="submit">Enviar</button>
+        {% for message in messages %}
+            {{message}}
+        {% endfor %}
+    </form>
+
+{% endblock %}
