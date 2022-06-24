@@ -1,0 +1,52 @@
+*{
+    border: none;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* general classes */
+.scaled:hover{
+    transform: scale(1.1, 1.1);
+}
+
+.main-navbar{
+    margin:1%;
+    border-bottom: 1px grey solid;
+}
+
+/* 'users' app */
+
+.profile{
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: space-between;
+    margin: 4vw;
+}
+
+.profile div{
+    background-color: lightgray;
+    border-radius: 8px;
+}
+
+.profile div:nth-child(1){
+    width: 25vw;
+    display:flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile div:nth-child(1) a{
+    background:#f5c242;
+    padding: 10px 40px;
+    margin-top:5px;
+    border-radius:10px;
+    color:black;
+}
+
+.profile div:nth-child(2){
+    width: 65vw;
+}
