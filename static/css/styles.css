@@ -5,6 +5,14 @@
     margin: 0;
 }
 
+body{
+    background: rgb(2,0,36);
+    background: -moz-linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(65,50,112,0.9009978991596639) 55%, rgba(0,212,255,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(65,50,112,0.9009978991596639) 55%, rgba(0,212,255,1) 100%);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(65,50,112,0.9009978991596639) 55%, rgba(0,212,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#00d4ff",GradientType=1);
+}
+
 /* general classes */
 .scaled:hover{
     transform: scale(1.1, 1.1);
@@ -49,4 +57,48 @@
 
 .profile div:nth-child(2){
     width: 65vw;
+}
+
+/* 'music' app */
+.save-song-form{
+    display: flex;
+    flex: column;
+    justify-content: center;
+    color:white;
+    border:1px solid white;
+    margin: 2% 15%;
+    padding: 6% 2%;
+    border-radius: 4px;
+}
+
+.save-song-form div{
+    margin-top: 20px;
+}
+
+.save-song-form > div{
+    margin-right: 5%;
+    position: relative;
+}
+
+.save-song-form input[type="file"]{
+    background:none;
+    border: none;
+    color:white;
+}
+
+.save-song-form input[type="checkbox"]{
+    margin-top: 15px;
+}
+
+.save-song-form button{
+    margin-top: 15%;
+    padding: 10px 30px;
+    border-radius: 4px;
+    transition: 1s;
+    background:#2596be;
+    color:white;
+}
+
+.save-song-form button:hover{
+    transform:scale(1.2, 1.2);
 }
