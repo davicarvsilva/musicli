@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block imports %} 
+
+    <link rel="stylesheet" href="{% static 'core/css/audio_player.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="main-page">
+        {% for song in public_songs %}
+            <div>
+                {{ song.user.username }} posted {{ song.title }}
+                {% include "core/snippets/audio_player.html" with file=song.file %}
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

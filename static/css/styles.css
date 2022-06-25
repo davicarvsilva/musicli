@@ -102,3 +102,18 @@ body{
 .save-song-form button:hover{
     transform:scale(1.2, 1.2);
 }
+
+/* 'app' app */
+
+.main-page{
+    margin: 4% 8%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-page > div{
+    color:white;
+    margin-top: 20px;
+}
