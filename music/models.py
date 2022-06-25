@@ -1,6 +1,8 @@
 from django.db import models
 from django.db.models.deletion import CASCADE
 from django.contrib.auth.models import User
+from django.utils import timezone
+
 
 def user_song_directory_path(instance, filename):
     # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
@@ -12,6 +14,8 @@ class Song(models.Model):
     release_date = models.DateField()
     visibility = models.BooleanField(default=True)
     user = models.ForeignKey(User, on_delete=CASCADE)
+    posted_date = models.DateField(default=timezone.now)
+    likes = models.ManyToManyField(User, related_name="song_likes")
 
 
 
