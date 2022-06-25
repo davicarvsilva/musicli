@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %} Most Popular {% endblock %}
+
+{% block content %}
+
+    <main>
+        <article>
+            <h1>Most popular songs</h1>
+            {% for song in most_popular_songs %}
+                {{ song.likes.all | length }}
+            {% endfor %}
+        </article>
+        <article>
+            <h1>Most popular playlist</h1>
+        </article>
+    </main>
+
+{% endblock %}
