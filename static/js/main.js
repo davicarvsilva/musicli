@@ -9,9 +9,8 @@ function like(id_song, id_user){
         dataType: 'json',
         success: function (data) {
             const song_likes = JSON.parse(data.song_likes);
-            console.log($('#song_' + id_song + ' div.song-post-body div:last span'));
 
-            $('#song_' + id_song + ' div.song-post-body div:last span').html(song_likes);
+            $('#song_' + id_song + ' div.song-post-body div:last span.song-likes').html(song_likes);
         }
     });
 }
