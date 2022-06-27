@@ -6,11 +6,51 @@
 }
 
 body{
+    color:white;
+    margin: 0 4%;
     background: rgb(2,0,36);
     background: -moz-linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(65,50,112,0.9009978991596639) 55%, rgba(0,212,255,1) 100%);
     background: -webkit-linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(65,50,112,0.9009978991596639) 55%, rgba(0,212,255,1) 100%);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(65,50,112,0.9009978991596639) 55%, rgba(0,212,255,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#00d4ff",GradientType=1);
+}
+
+/* snippets */
+.song-post{
+    display: flex;
+    border: 1px solid grey;
+    padding: 0 40px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    margin-right: 10px;
+}
+
+.song-post .song-post-number{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid grey;
+    padding-right:40px;
+}
+
+.song-post .song-post-body{
+    padding-left: 20px;
+}
+
+.song-post .song-post-body span{
+    font-size: 15pt;
+}
+
+.song-post .song-post-body > div{
+    margin-top:20px;
+}
+
+.song-post .song-post-body > div:last-child img{
+    margin-left: 4px;
+}
+
+.song-post .song-post-body > div:last-child{
+    margin-bottom: 20px;
 }
 
 /* general classes */
@@ -101,6 +141,22 @@ body{
 
 .save-song-form button:hover{
     transform:scale(1.2, 1.2);
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.most-popular::-webkit-scrollbar {
+    display: none;
+}
+  
+/* Hide scrollbar for IE, Edge and Firefox */
+.most-popular {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.most-popular {
+    height: 65vh; 
+    overflow-y: scroll;
 }
 
 /* 'core' app */

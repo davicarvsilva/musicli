@@ -4,15 +4,15 @@ from django.views import View
 from django.core.files.storage import FileSystemStorage
 from django.shortcuts import redirect
 
-from music.models import Song
 
+from music.models import Song
 from .forms import SongForm
 
 class MostPopularView(View):
     template_name = 'music/most_popular.html'
 
     def get(self, request, *args, **kwargs):
-        most_popular_songs = Song.objects.filter(visibility=True).order_by('-likes')
+        most_popular_songs = Song.objects.filter(visibility=True).order_by('-likes')[:50]
         
         context = {
             'most_popular_songs':most_popular_songs

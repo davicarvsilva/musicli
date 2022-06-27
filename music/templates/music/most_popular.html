@@ -5,13 +5,14 @@
 {% block title %} Most Popular {% endblock %}
 
 {% block content %}
-
     <main>
         <article>
-            <h1>Most popular songs</h1>
-            {% for song in most_popular_songs %}
-                {% include "snippets/song_post.html" with song=song %}
-            {% endfor %}
+            <h1 style="text-align: center;">Most popular songs</h1>
+            <div class="most-popular">
+                {% for song in most_popular_songs %}
+                    {% include "snippets/song_post.html" with song=song number=forloop.counter  %}
+                {% endfor %}
+            </div>
         </article>
         <article>
             <h1>Most popular playlist</h1>

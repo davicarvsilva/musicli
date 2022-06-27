@@ -1,15 +1,29 @@
 {% load static %}
 
-<div id="song_{{song.pk}}">
-    {{ song.user.username }} posted {{ song.title }}
-    <div class="container-audio">
-        <audio controls  loop autoplay>
-            <source src="{% get_media_prefix %}{{ song.file }}" type="audio/ogg">
-            Your browser dose not Support the audio Tag
-        </audio>
-    </div>
-    <span class="song-likes">{{ song.likes.all | length }}</span> likes
+<div id="song_{{song.pk}}" class="song-post">
+    {% if number %}
+        <div class="song-post-number">
+            <span>{{ number }}</span>
+        </div>  
+    {% endif %}
 
-    <button onclick="like('{{song.pk}}', '{{user.pk}}')">Like</button>
+    <div class="song-post-body">
+        <div>
+            <span>{{ song.user }} posted "{{ song.title }}":</span>
+        </div>
+        <div class="container-audio">
+            <audio controls>
+                <source src="{% get_media_prefix %}{{ song.file }}" type="audio/ogg">
+                Your browser dose not Support the audio Tag
+            </audio>
+        </div>
+        <div>
+            <span>at {{song.posted_date }} </span>
+        </div>
+        <div>
+            <span><span class="song-likes">{{ song.likes.all | length }}</span> likes</span>
+            <img src="{% static 'img/blue-like-icon.png' %}" alt="like button" onclick="like('{{song.pk}}', '{{user.pk}}')">
+        </div>
+    </div>
 </div>
 
