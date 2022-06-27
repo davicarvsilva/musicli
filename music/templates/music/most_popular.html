@@ -10,7 +10,7 @@
         <article>
             <h1>Most popular songs</h1>
             {% for song in most_popular_songs %}
-                {{ song.likes.all | length }}
+                {% include "snippets/song_post.html" with song=song %}
             {% endfor %}
         </article>
         <article>

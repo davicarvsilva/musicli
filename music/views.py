@@ -12,7 +12,7 @@ class MostPopularView(View):
     template_name = 'music/most_popular.html'
 
     def get(self, request, *args, **kwargs):
-        most_popular_songs = Song.objects.all().order_by('-likes')
+        most_popular_songs = Song.objects.filter(visibility=True).order_by('-likes')
         
         context = {
             'most_popular_songs':most_popular_songs
