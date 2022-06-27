@@ -1,9 +1,13 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
     <div class="main-page">
         <main>
+            <div class="add-new-song">
+                <a href="{% url 'music:save_song' %}"><img src="{% static 'img/add-song-button.png' %}" alt="add new song button"></a> 
+            </div>
             {% for song in public_songs %}
                 {% include "snippets/song_post.html" with song=song %}
             {% endfor %}
