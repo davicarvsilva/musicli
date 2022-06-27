@@ -61,6 +61,20 @@ body{
 .main-navbar{
     margin:1%;
     border-bottom: 1px grey solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.main-navbar div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-navbar div a{ 
+    margin-left: 10px;
 }
 
 /* 'users' app */
