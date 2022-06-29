@@ -65,6 +65,8 @@ input[type="checkbox"]{
     transform: scale(1.1, 1.1);
 }
 
+/* Navbar */
+
 .main-navbar{
     margin:1%;
     border-bottom: 1px grey solid;
@@ -73,15 +75,24 @@ input[type="checkbox"]{
     justify-content: space-between;
 }
 
-.main-navbar div{
+.main-navbar .login-options{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
-.main-navbar div a{ 
+.main-navbar .login-options a{
+    padding: 10px 15px;
+    border: 1px solid white;
+    border-radius:  5px;
+    box-shadow: 1px 1px 15px white;
     margin-left: 10px;
+    transition: 1s;
+}
+
+.main-navbar .login-options a:hover{
+    transform: scale(1.1, 1.1);
 }
 
 /* 'users' app */

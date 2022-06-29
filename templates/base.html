@@ -19,12 +19,13 @@
 <body>
     <nav class="main-navbar">
         <h1><a href="{% url 'core:index'%}">MusicLi</a></h1>
-        <div>
+
+        <div class="login-options">
             {% if user.is_authenticated %}
-                <a href="{% url 'users:user_profile' %}">{{ user }}</a>
-                <a href="{% url 'users:logout' %}">logout</a>
+               <a href="{% url 'users:user_profile' %}" style="color:purple;">{{ user }}</a>
+               <a href="{% url 'users:logout' %}" style="color:red;">logout</a>
             {% else %}
-                <a href="{% url 'account_login' %}">signin</a>
+               <a href="{% url 'account_login' %}">signin</a>
             {% endif %}
         </div>
     </nav>
