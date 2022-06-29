@@ -77,4 +77,6 @@ As an alternative, you can check Github docs at [how to create pull requests](ht
 
 This project is free to use by anyone.
 
+Projected and developed  by davicarvsilva
+
 [⬆ Back to top](#musicli)<br>
