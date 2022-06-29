@@ -27,7 +27,7 @@
         <div>
             <span>at {{song.posted_date }} </span>
         </div>
-        <div>
+        <div style="display:flex; justify-content: space-between;">
             <div class="box" onmouseover="showModal(this)" onmouseleave="hideModal(this)">
                 <div class="modal">
                     <ul>
@@ -37,7 +37,20 @@
                     </ul>
                 </div>
                 <span><span class="song-likes">{{ song.likes.all | length }}</span> likes</span>
-                <img src="{% static 'img/blue-like-icon.png' %}" alt="like button" onclick="like('{{song.pk}}', '{{user.pk}}', this)">
+                {% if user.is_authenticated %}
+                    <img src="{% static 'img/blue-like-icon.png' %}" alt="like button" onclick="like('{{song.pk}}', '{{user.pk}}', this)">
+                {% endif %}
+            </div>
+            <div>
+                {% if user.is_authenticated %}
+                    <button style="color:black; padding: 5px 8px; border-radius:4px;" onclick="favoriteSong('{{song.pk}}', '{{user.pk}}', this)" id="favorite-song">
+                        {% if user in song.favorites.all %}
+                            Favorited
+                        {% else %}
+                            Not Favorited
+                        {% endif %}
+                    </button> 
+                {% endif %}
             </div>
         </div>
     </div>

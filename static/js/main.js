@@ -1,4 +1,4 @@
-function like(id_song, id_user, el){
+function like(id_song, id_user){
     $.ajax({
         url: "/song/like/",
         data: {
@@ -10,7 +10,6 @@ function like(id_song, id_user, el){
         success: function (data) {
             const song_likes = JSON.parse(data.song_likes);
             const all_users = JSON.parse(data.all_users);
-            console.log(all_users);
             $('#song_' + id_song + ' > div > div:nth-child(4) > div > span > span').html(song_likes);
         }
     });
@@ -24,4 +23,26 @@ function showModal(el){
 function hideModal(el){
     const modal = el.firstElementChild;
     modal.style.cssText = "visibility: hidden; opacity:0;";
+}
+
+function favoriteSong(id_song, id_user){
+    $.ajax({
+        url: "/song/favorite/",
+        data: {
+            'id_song':id_song,
+            'id_user':id_user
+        },
+
+        dataType: 'json',
+        success: function (data) {
+            const action = data;
+            if(action == "add"){
+                $('#song_' + id_song + ' #favorite-song').html("Favorited");
+            }
+            else{
+                $('#song_' + id_song + ' #favorite-song').html("Not favorited");
+            }
+            
+        }
+    });
 }

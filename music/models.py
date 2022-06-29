@@ -16,6 +16,7 @@ class Song(models.Model):
     user = models.ForeignKey(User, on_delete=CASCADE)
     posted_date = models.DateField(default=timezone.now)
     likes = models.ManyToManyField(User, related_name="song_likes")
+    favorites = models.ManyToManyField(User, related_name="song_favorites")
 
 
 

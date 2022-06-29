@@ -13,8 +13,6 @@ def LikeView(request):
     song = get_object_or_404(Song, pk=id_song)
     user = get_object_or_404(User, pk=id_user)
 
-    context = {}
-
     if user in song.likes.all():
         song.likes.remove(user)
     else:
@@ -22,9 +20,27 @@ def LikeView(request):
     song.save()
 
     all_users = song.likes.all()
-    print(all_users)
 
     return JsonResponse({'song_likes':len(song.likes.all()), 'all_users':serializers.serialize('json', all_users)})
+
+def FavoriteSongView(request):
+    id_song = request.GET.get('id_song', None)
+    id_user = request.GET.get('id_user', None)
+
+    song = get_object_or_404(Song, pk=id_song)
+    user = get_object_or_404(User, pk=id_user)
+
+    action = ''
+
+    if user in song.favorites.all():
+        song.favorites.remove(user)
+        action = 'remove'
+    else:
+        song.favorites.add(user)
+        action = 'add'
+    song.save()
+
+    return JsonResponse(action, safe=False)
 
 class IndexTemplateView(ListView):
     template_name = "core/index.html"
