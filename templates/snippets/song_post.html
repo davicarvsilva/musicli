@@ -21,8 +21,17 @@
             <span>at {{song.posted_date }} </span>
         </div>
         <div>
-            <span><span class="song-likes">{{ song.likes.all | length }}</span> likes</span>
-            <img src="{% static 'img/blue-like-icon.png' %}" alt="like button" onclick="like('{{song.pk}}', '{{user.pk}}')">
+            <div class="box" onmouseover="showModal(this)" onmouseleave="hideModal(this)">
+                <div class="modal">
+                    <ul>
+                        {% for user in song.likes.all %}
+                            <li>{{ user }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <span><span class="song-likes">{{ song.likes.all | length }}</span> likes</span>
+                <img src="{% static 'img/blue-like-icon.png' %}" alt="like button" onclick="like('{{song.pk}}', '{{user.pk}}', this)">
+            </div>
         </div>
     </div>
 </div>

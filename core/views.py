@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
 from django.http import JsonResponse
 from django.contrib.auth.models import User
-
+from django.core import serializers
 
 from music.models import Song
 
@@ -13,12 +13,18 @@ def LikeView(request):
     song = get_object_or_404(Song, pk=id_song)
     user = get_object_or_404(User, pk=id_user)
 
-    song.likes.add(user)
+    context = {}
+
+    if user in song.likes.all():
+        song.likes.remove(user)
+    else:
+        song.likes.add(user)
     song.save()
 
-    print(user)
+    all_users = song.likes.all()
+    print(all_users)
 
-    return JsonResponse({'song_likes':len(song.likes.all())})
+    return JsonResponse({'song_likes':len(song.likes.all()), 'all_users':serializers.serialize('json', all_users)})
 
 class IndexTemplateView(ListView):
     template_name = "core/index.html"

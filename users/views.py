@@ -3,9 +3,17 @@ from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.views import View
+
 
 from .forms import CreateUserForm
 
+
+class LoginView(View):
+    template_name = 'core/login.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
 
 def userRegister(request):
     if request.user.is_authenticated:
