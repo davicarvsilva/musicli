@@ -1,10 +1,61 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block imports %}
+  <link rel="stylesheet" href="{% static 'css/login_styles.css' %}">
+{% endblock %}
 
 {% block content %}
-    <form method="POST">
-        {% csrf_token %} 
+<div class="login-form">
+  <form method="POST">
+    {% csrf_token %} 
+    <div class="screen-1">
+      
+      {% include 'snippets/login_form_svg.html' %}
+
+      <div class="username">
+        {{ form.username.label_tag }}
+        <div class="sec-2">
+          <ion-icon name="mail-outline"></ion-icon>
+          {{ form.username }}
+        </div>
+      </div>
+
+      <div class="email">
+        {{ form.email.label_tag }}
+        <div class="sec-2">
+          <ion-icon name="mail-outline"></ion-icon>
+          {{ form.email }}
+        </div>
+      </div>
+
+      <div class="password">
+        {{ form.password1.label_tag }}
+        <div class="sec-2">
+          <ion-icon name="lock-closed-outline"></ion-icon>
+            {{ form.password1 }}
+          <ion-icon class="show-hide" name="eye-outline"></ion-icon>
+        </div>
+      </div>
+
+      <div class="password">
+        {{ form.password2.label_tag }}
+        <div class="sec-2">
+          <ion-icon name="lock-closed-outline"></ion-icon>
+            {{ form.password2 }}
+          <ion-icon class="show-hide" name="eye-outline"></ion-icon>
+        </div>
+      </div>
+
+      <button class="register" type="submit">Sign Up</button>
         
-        {{form.as_p}}
-        <input type="submit" value="Login" />
-    </form>
+      <div class="footer">
+        <span>
+          <a href="{% url 'account_login' %}">Sign in</a>
+        </span>
+      </div>
+
+    </div>
+  </form>
+</div>
 {% endblock %}

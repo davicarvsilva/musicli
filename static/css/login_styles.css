@@ -1,8 +1,7 @@
-  * {
-    font-family: "Poppins";
-  }
+
   
   .login-form {
+    font-family: "Poppins";
     -webkit-user-select: none;
        -moz-user-select: none;
         -ms-user-select: none;
@@ -15,7 +14,6 @@
   }
 
   .login-form form{
-    margin-top: -100px;
     width: 60vw;
   }
   
@@ -38,11 +36,44 @@
     justify-content: center;
   }
 
-  .screen-1 .email {
+  .screen-1 .username {
     background: white;
     box-shadow: 0 0 2em #e6e9f9;
     padding: 1em;
     display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    color: #4d4d4d;
+    margin-top: -3em;
+  }
+  .screen-1 .username input {
+    outline: none;
+    border: none;
+  }
+  .screen-1 .username input::-moz-placeholder {
+    color: black;
+    font-size: 0.9em;
+  }
+  .screen-1 .username input:-ms-input-placeholder {
+    color: black;
+    font-size: 0.9em;
+  }
+  .screen-1 .username input::placeholder {
+    color: black;
+    font-size: 0.9em;
+  }
+  .screen-1 .username ion-icon {
+    color: #4d4d4d;
+    margin-bottom: -0.2em;
+  }
+
+  .screen-1 .email {
+    background: white;
+    box-shadow: 0 0 2em #e6e9f9;
+    padding: 1em;
+    display: flex;  
     flex-direction: column;
     gap: 0.5em;
     border-radius: 20px;
@@ -102,7 +133,7 @@
   .screen-1 .password .show-hide {
     margin-right: -5em;
   }
-  .screen-1 .login {
+  .screen-1 .login, .register {
     padding: 1em;
     background: #3e4684;
     color: white;
