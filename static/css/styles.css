@@ -23,7 +23,7 @@ body{
     padding: 0 40px;
     border-radius: 10px;
     margin-bottom: 8px;
-    margin-right: 10px;
+    margin-right: 10px;;
 }
 
 .song-post .song-post-number{
@@ -36,6 +36,7 @@ body{
 
 .song-post .song-post-body{
     padding-left: 20px;
+    width: 100%;
 }
 
 .song-post .song-post-body span{
@@ -86,13 +87,13 @@ input[type="checkbox"]{
     padding: 10px 15px;
     border: 1px solid white;
     border-radius:  5px;
-    box-shadow: 1px 1px 15px white;
+
     margin-left: 10px;
     transition: 1s;
 }
 
 .main-navbar .login-options a:hover{
-    transform: scale(1.1, 1.1);
+    box-shadow: 1px 1px 15px white;
 }
 
 /* 'users' app */

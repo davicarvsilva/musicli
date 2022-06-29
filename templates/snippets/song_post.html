@@ -8,8 +8,15 @@
     {% endif %}
 
     <div class="song-post-body">
-        <div>
+        <div style="display:flex; justify-content: space-between;">
             <span>{{ song.user }} posted "{{ song.title }}":</span>
+            {% if song.user == user %} 
+                <form action="{% url 'music:delete_song' pk=song.pk %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" style="background: none;"><img src="{% static 'img/trashcan.png' %}" alt="Delete icon"></button>
+                </form>
+                
+            {% endif %}
         </div>
         <div class="container-audio">
             <audio controls>

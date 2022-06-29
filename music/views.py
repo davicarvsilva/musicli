@@ -1,13 +1,17 @@
-from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views import View
-from django.core.files.storage import FileSystemStorage
 from django.shortcuts import redirect
 import magic
-from django.forms.utils import ErrorList
+from django.views.generic.edit import DeleteView
+from django.urls import reverse_lazy
 
 from music.models import Song
 from .forms import SongForm
+
+class SongDeleteView(DeleteView):
+    model = Song
+
+    success_url = reverse_lazy('core:index')
 
 class MostPopularView(View):
     template_name = 'music/most_popular.html'

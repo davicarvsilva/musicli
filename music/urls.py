@@ -6,5 +6,6 @@ app_name = 'music'
 
 urlpatterns = [
     path('save/', music_views.SongFormView.as_view(), name="save_song"),
+    path('<pk>/delete/', music_views.SongDeleteView.as_view(), name="delete_song"),
     path('most-popular/', music_views.MostPopularView.as_view(), name="most_popular"),
-]
+]   
