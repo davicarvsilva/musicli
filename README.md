@@ -62,7 +62,7 @@ Got to http://127.0.0.1:8000
 Have fun
 ```
 
-## 📫 Contributing to musicli
+## 📫 Contributing to MusicLi
 For contributing to MusicLi, follow the steps:
 
 1. Fork this repository.
