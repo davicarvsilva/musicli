@@ -43,13 +43,12 @@
             </div>
             <div>
                 {% if user.is_authenticated %}
-                    <button style="color:black; padding: 5px 8px; border-radius:4px;" onclick="favoriteSong('{{song.pk}}', '{{user.pk}}', this)" id="favorite-song">
                         {% if user in song.favorites.all %}
-                            Favorited
+                            <img style="cursor:pointer;" src="{% static 'img/filled-heart.png' %}" alt="Favorite icon" onclick="favoriteSong('{{song.pk}}', '{{user.pk}}', this)">
                         {% else %}
-                            Not Favorited
+                            <img style="cursor:pointer;" src="{% static 'img/blank-heart.png' %}" %}" alt="Favorite icon"  onclick="favoriteSong('{{song.pk}}', '{{user.pk}}', this)">
                         {% endif %}
-                    </button> 
+                    
                 {% endif %}
             </div>
         </div>
