@@ -56,7 +56,6 @@ body{
 }
 
 /* general classes */
-
 input[type="checkbox"]{
     width: 20px;
     display: inline;
