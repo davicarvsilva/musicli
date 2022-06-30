@@ -10,7 +10,6 @@ from .forms import SongForm
 
 class SongDeleteView(DeleteView):
     model = Song
-
     success_url = reverse_lazy('core:index')
 
 class MostPopularView(View):

@@ -188,7 +188,7 @@ input[type="checkbox"]{
 }
 
 .most-popular {
-    height: 65vh; 
+    height: max(65vh, auto); 
     overflow-y: scroll;
 }
 
