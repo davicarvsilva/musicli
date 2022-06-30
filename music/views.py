@@ -6,7 +6,7 @@ from django.views.generic.edit import DeleteView
 from django.urls import reverse_lazy
 
 from music.models import Song
-from .forms import SongForm
+from .forms import SongForm, AlbumForm
 
 class SongDeleteView(DeleteView):
     model = Song
@@ -49,3 +49,31 @@ class SongFormView(View):
         
 
         return render(request, self.template_name, {'form': form})
+
+class AlbumFormView(View):
+    form_class = AlbumForm
+    template_name = 'music/save_album_form.html'
+
+    def get(self, request, *args, **kwargs):
+        form = self.form_class(
+            user=request.user, 
+            songs=Song.objects.filter(user=request.user))
+
+        return render(request, self.template_name, {'form': form})
+    
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST, 
+            user=request.user,
+            songs=Song.objects.filter(user=request.user))
+
+        if request.method == 'POST':
+            if form.is_valid():
+                form.save()
+            else:
+                print(form.errors)
+    
+            return redirect('music:save_album')
+        
+
+        return render(request, self.template_name, {'form': form})
+
